@@ -1,0 +1,1531 @@
+{
+  "info": {
+    "title": "Ent Schema API",
+    "description": "This is an auto generated API description made out of an Ent schema definition",
+    "termsOfService": "",
+    "contact": {},
+    "license": {
+      "name": ""
+    },
+    "version": "0.0.0"
+  },
+  "paths": {
+    "/accounts": {
+      "get": {
+        "summary": "List Accounts",
+        "description": "List Accounts.",
+        "tags": [
+          "Account"
+        ],
+        "operationId": "listAccount",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "what page to render",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "itemsPerPage",
+            "in": "query",
+            "description": "item count to render per page",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "result Account list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Account2555118887View"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Account",
+        "description": "Creates a new Account and persists it to storage.",
+        "tags": [
+          "Account"
+        ],
+        "operationId": "createAccount",
+        "requestBody": {
+          "description": "Account to create",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email",
+                  "oAuthType",
+                  "password",
+                  "phoneNumber",
+                  "role",
+                  "username"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "oAuthType": {
+                    "type": "string",
+                    "example": "GOOGLE"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "phoneNumber": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Account created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account2555118887View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/accounts/{id}": {
+      "get": {
+        "summary": "Find a Account by ID",
+        "description": "Finds the Account with the requested ID and returns it.",
+        "tags": [
+          "Account"
+        ],
+        "operationId": "readAccount",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Account",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Account with requested ID was found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account2555118887View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a Account by ID",
+        "description": "Deletes the Account with the requested ID.",
+        "tags": [
+          "Account"
+        ],
+        "operationId": "deleteAccount",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Account to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Account with requested ID was deleted"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updates a Account",
+        "description": "Updates a Account and persists changes to storage.",
+        "tags": [
+          "Account"
+        ],
+        "operationId": "updateAccount",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Account to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Account properties to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email",
+                  "oAuthType",
+                  "password",
+                  "phoneNumber",
+                  "role",
+                  "username"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "oAuthType": {
+                    "type": "string",
+                    "example": "GOOGLE"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "phoneNumber": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Account updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account2555118887View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/accounts/{id}/role": {
+      "get": {
+        "summary": "Find the attached Role",
+        "description": "Find the attached Role of the Account with the given ID",
+        "tags": [
+          "Account"
+        ],
+        "operationId": "readAccountRole",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Account",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Role attached to Account with requested ID was found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role736703411View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/permissions": {
+      "get": {
+        "summary": "List Permissions",
+        "description": "List Permissions.",
+        "tags": [
+          "Permission"
+        ],
+        "operationId": "listPermission",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "what page to render",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "itemsPerPage",
+            "in": "query",
+            "description": "item count to render per page",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "result Permission list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Permission4235299754View"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Permission",
+        "description": "Creates a new Permission and persists it to storage.",
+        "tags": [
+          "Permission"
+        ],
+        "operationId": "createPermission",
+        "requestBody": {
+          "description": "Permission to create",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "method",
+                  "permissionName",
+                  "uri"
+                ],
+                "properties": {
+                  "method": {
+                    "type": "string"
+                  },
+                  "permissionName": {
+                    "type": "string"
+                  },
+                  "permissions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "uri": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Permission created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Permission4235299754View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/permissions/{id}": {
+      "get": {
+        "summary": "Find a Permission by ID",
+        "description": "Finds the Permission with the requested ID and returns it.",
+        "tags": [
+          "Permission"
+        ],
+        "operationId": "readPermission",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Permission",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Permission with requested ID was found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Permission4235299754View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a Permission by ID",
+        "description": "Deletes the Permission with the requested ID.",
+        "tags": [
+          "Permission"
+        ],
+        "operationId": "deletePermission",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Permission to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Permission with requested ID was deleted"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updates a Permission",
+        "description": "Updates a Permission and persists changes to storage.",
+        "tags": [
+          "Permission"
+        ],
+        "operationId": "updatePermission",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Permission to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Permission properties to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "method",
+                  "permissionName",
+                  "uri"
+                ],
+                "properties": {
+                  "method": {
+                    "type": "string"
+                  },
+                  "permissionName": {
+                    "type": "string"
+                  },
+                  "permissions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "uri": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Permission updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Permission4235299754View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/permissions/{id}/permissions": {
+      "get": {
+        "summary": "Find the attached Permissions",
+        "description": "Find the attached Permissions of the Permission with the given ID",
+        "tags": [
+          "Permission"
+        ],
+        "operationId": "listPermissionPermissions",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "what page to render",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "itemsPerPage",
+            "in": "query",
+            "description": "item count to render per page",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Permission",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Permissions attached to Permission with requested ID was found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Permission4235299754View"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/refresh-tokens": {
+      "get": {
+        "summary": "List RefreshTokens",
+        "description": "List RefreshTokens.",
+        "tags": [
+          "RefreshToken"
+        ],
+        "operationId": "listRefreshToken",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "what page to render",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "itemsPerPage",
+            "in": "query",
+            "description": "item count to render per page",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "result RefreshToken list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RefreshToken3828610044View"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new RefreshToken",
+        "description": "Creates a new RefreshToken and persists it to storage.",
+        "tags": [
+          "RefreshToken"
+        ],
+        "operationId": "createRefreshToken",
+        "requestBody": {
+          "description": "RefreshToken to create",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "expiredAt",
+                  "roleName",
+                  "token",
+                  "username"
+                ],
+                "properties": {
+                  "expiredAt": {
+                    "type": "string"
+                  },
+                  "roleName": {
+                    "type": "string",
+                    "example": "ADMIN"
+                  },
+                  "token": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "RefreshToken created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefreshToken3828610044View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/refresh-tokens/{id}": {
+      "get": {
+        "summary": "Find a RefreshToken by ID",
+        "description": "Finds the RefreshToken with the requested ID and returns it.",
+        "tags": [
+          "RefreshToken"
+        ],
+        "operationId": "readRefreshToken",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the RefreshToken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "RefreshToken with requested ID was found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefreshToken3828610044View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a RefreshToken by ID",
+        "description": "Deletes the RefreshToken with the requested ID.",
+        "tags": [
+          "RefreshToken"
+        ],
+        "operationId": "deleteRefreshToken",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the RefreshToken to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "RefreshToken with requested ID was deleted"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updates a RefreshToken",
+        "description": "Updates a RefreshToken and persists changes to storage.",
+        "tags": [
+          "RefreshToken"
+        ],
+        "operationId": "updateRefreshToken",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the RefreshToken to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "RefreshToken properties to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "expiredAt",
+                  "roleName",
+                  "token",
+                  "username"
+                ],
+                "properties": {
+                  "expiredAt": {
+                    "type": "string"
+                  },
+                  "roleName": {
+                    "type": "string",
+                    "example": "ADMIN"
+                  },
+                  "token": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "RefreshToken updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefreshToken3828610044View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/roles": {
+      "get": {
+        "summary": "List Roles",
+        "description": "List Roles.",
+        "tags": [
+          "Role"
+        ],
+        "operationId": "listRole",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "what page to render",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "itemsPerPage",
+            "in": "query",
+            "description": "item count to render per page",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "result Role list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role736703411View"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Role",
+        "description": "Creates a new Role and persists it to storage.",
+        "tags": [
+          "Role"
+        ],
+        "operationId": "createRole",
+        "requestBody": {
+          "description": "Role to create",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "description",
+                  "roleName"
+                ],
+                "properties": {
+                  "accounts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "permissions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "roleName": {
+                    "type": "string",
+                    "example": "ADMIN"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Role created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role736703411View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/roles/{id}": {
+      "get": {
+        "summary": "Find a Role by ID",
+        "description": "Finds the Role with the requested ID and returns it.",
+        "tags": [
+          "Role"
+        ],
+        "operationId": "readRole",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Role",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Role with requested ID was found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role736703411View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a Role by ID",
+        "description": "Deletes the Role with the requested ID.",
+        "tags": [
+          "Role"
+        ],
+        "operationId": "deleteRole",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Role to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Role with requested ID was deleted"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updates a Role",
+        "description": "Updates a Role and persists changes to storage.",
+        "tags": [
+          "Role"
+        ],
+        "operationId": "updateRole",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Role to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Role properties to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "description",
+                  "roleName"
+                ],
+                "properties": {
+                  "accounts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "permissions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "roleName": {
+                    "type": "string",
+                    "example": "ADMIN"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Role updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role736703411View"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/roles/{id}/accounts": {
+      "get": {
+        "summary": "Find the attached Accounts",
+        "description": "Find the attached Accounts of the Role with the given ID",
+        "tags": [
+          "Role"
+        ],
+        "operationId": "listRoleAccounts",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "what page to render",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "itemsPerPage",
+            "in": "query",
+            "description": "item count to render per page",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Role",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Accounts attached to Role with requested ID was found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Account2555118887View"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/roles/{id}/permissions": {
+      "get": {
+        "summary": "Find the attached Permissions",
+        "description": "Find the attached Permissions of the Role with the given ID",
+        "tags": [
+          "Role"
+        ],
+        "operationId": "listRolePermissions",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "what page to render",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "itemsPerPage",
+            "in": "query",
+            "description": "item count to render per page",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the Role",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Permissions attached to Role with requested ID was found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Permission4235299754View"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Account2555118887View": {
+        "type": "object",
+        "required": [
+          "email",
+          "id",
+          "oAuthType",
+          "phoneNumber",
+          "username"
+        ],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "oAuthType": {
+            "type": "string",
+            "example": "GOOGLE"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        }
+      },
+      "Permission4235299754View": {
+        "type": "object",
+        "required": [
+          "id",
+          "method",
+          "permissionName",
+          "uri"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "permissionName": {
+            "type": "string"
+          },
+          "uri": {
+            "type": "string"
+          }
+        }
+      },
+      "RefreshToken3828610044View": {
+        "type": "object",
+        "required": [
+          "expiredAt",
+          "id",
+          "roleName",
+          "token",
+          "username"
+        ],
+        "properties": {
+          "expiredAt": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "roleName": {
+            "type": "string",
+            "example": "ADMIN"
+          },
+          "token": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        }
+      },
+      "Role736703411View": {
+        "type": "object",
+        "required": [
+          "description",
+          "id",
+          "roleName"
+        ],
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "roleName": {
+            "type": "string",
+            "example": "ADMIN"
+          }
+        }
+      }
+    },
+    "responses": {
+      "400": {
+        "description": "invalid input, data invalid",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 400
+                },
+                "errors": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "status": {
+                  "type": "string",
+                  "example": "Bad Request"
+                }
+              }
+            }
+          }
+        }
+      },
+      "403": {
+        "description": "user misses permission",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 403
+                },
+                "errors": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "status": {
+                  "type": "string",
+                  "example": "Forbidden"
+                }
+              }
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "resource not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 404
+                },
+                "errors": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "status": {
+                  "type": "string",
+                  "example": "Not Found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "409": {
+        "description": "conflicting resources",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 409
+                },
+                "errors": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "status": {
+                  "type": "string",
+                  "example": "Conflict"
+                }
+              }
+            }
+          }
+        }
+      },
+      "500": {
+        "description": "unexpected error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 500
+                },
+                "errors": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "status": {
+                  "type": "string",
+                  "example": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {}
+  },
+  "openapi": "3.0.3"
+}
